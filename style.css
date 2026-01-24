@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+}
+
+#map-container {
+    width: 800px;
+    aspect-ratio: 1 / 1;
+    background-image: url('map.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    margin: 20px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.terminal-point {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: cyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    transform: translate(-50%, -50%);
+}
+
+.terminal-point.type-terminal {
+    border-radius: 50%;
+    background-color: cyan;
+}
+
+.terminal-point.type-device {
+    border-radius: 2px;
+    background-color: #9b59b6;
+}
+
+.terminal-point.type-lever {
+    border-radius: 2px;
+    background-color: #e67e22;
+    border: 2px solid #fff;
+}
+
+.class-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.class-btn.active {
+    background-color: darkblue;
+    color: white;
+}
+
+.terminal-point.highlighted {
+    background-color: #39ff14;
+    z-index: 10;
+    box-shadow: 0 0 10px #39ff14;
+}
+
+.terminal-point.dimmed {
+    opacity: 0.3;
+}
+
+.map-annotation.label {
+    position: absolute;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
+.terminal-point .badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 10;
+}

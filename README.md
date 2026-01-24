@@ -1,2 +1,2 @@
 # m7roles
-term numbers and roles of classes.
+term numbers and roles for classes. what else did you expect?
