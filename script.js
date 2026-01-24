@@ -74,7 +74,7 @@ function renderMap() {
     });
 }
 
-let currentStrategy = "classic_m7";
+let currentStrategy = "arch_test";
 let activeRole = null;
 
 function generateControls() {
