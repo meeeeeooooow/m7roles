@@ -20,19 +20,20 @@ const terminals = [
     { id: "s2levRight", type: "lever", x: 26.50, y: 85.63 },
     // Section 3 (Bottom Left)
     { id: "s3term1", type: "terminal", x: 2.00, y: 72.25 },
-    { id: "s3dev", type: "device", x: 25, y: 65 },
+    { id: "s3dev", type: "device", x: 3.13, y: 41.75 },
     { id: "s3term2", type: "terminal", x: 2.50, y: 55.61 },
     { id: "s3term3", type: "terminal", x: 17.00, y: 56.48 },
-    { id: "s3term4", type: "terminal", x: 35, y: 85 },
+    { id: "s3term4", type: "terminal", x: 2.63, y: 39.88 },
     { id: "s3levLeft", type: "lever", x: 4.63, y: 23.00 },
     { id: "s3levRight", type: "lever", x: 15.13, y: 23.00 },
     // Section 4 (Top Left)
     { id: "s4levLeft", type: "lever", x: 76.00, y: 4.80 },
     { id: "s4levRight", type: "lever", x: 77.75, y: 15.17 },
-    { id: "s4term1", type: "terminal", x: 25, y: 35 },
-    { id: "s4term2", type: "terminal", x: 15, y: 25 },
+    { id: "s4term1", type: "terminal", x: 38.38, y: 3.38 },
+    { id: "s4term2", type: "terminal", x: 41.00, y: 2.63 },
     { id: "s4dev", type: "device", x: 57.75, y: 5.55 },
-    { id: "s4term3", type: "terminal", x: 35, y: 15 },
+    { id: "s4term3", type: "terminal", x: 59.50, y: 3.00 },
+    { id: "s4term4", type: "terminal", x: 65.38, y: 16.63 },
     { id: "core", type: "core", x: 49.88, y: 16.92 },
 ];
 
@@ -139,7 +140,7 @@ function renderAnnotations() {
                     badge.innerText = ann.text;
                     badge.style.backgroundColor = ann.color;
                     badge.style.position = 'absolute';
-                    badge.style.top = '-10px';
+                    badge.style.top = ann.position === 'bottom' ? '20px' : '-10px';
                     badge.style.right = '-10px';
                     badge.style.padding = '2px 5px';
                     badge.style.borderRadius = '4px';

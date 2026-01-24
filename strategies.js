@@ -8,8 +8,8 @@ const strategies = {
             "Healer": ["s2term3", "s2levLeft", "s2levRight"]
         },
         annotations: [
-            { type: "badge", termId: "s4dev", text: "i4", color: "red" },
-            { type: "badge", termId: "s2dev", text: "pd", color: "pink" },
+            { type: "badge", termId: "s4dev", text: "i4", color: "red", position: "bottom" },
+            { type: "badge", termId: "s2dev", text: "pd", color: "pink", position: "bottom" },
         ]
     }
 };
