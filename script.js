@@ -12,6 +12,7 @@ const terminals = [
     // Section 2 (Bottom Right)
     { id: "s2term1", type: "terminal", x: 62.62, y: 82.50 },
     { id: "s2term2", type: "terminal", x: 55.12, y: 83.12 },
+    { id: "s2eeHigh", type: "ee", x: 54.87, y: 95.25 },
     { id: "s2dev", type: "device", x: 55.05, y: 98.75 },
     { id: "s2term3", type: "terminal", x: 44.62, y: 81.50 },
     { id: "s2term4", type: "terminal", x: 38.37, y: 97.25 },
@@ -20,6 +21,7 @@ const terminals = [
     { id: "s2levRight", type: "lever", x: 26.50, y: 85.63 },
     // Section 3 (Bottom Left)
     { id: "s3term1", type: "terminal", x: 2.00, y: 72.25 },
+    { id: "s3eeLow", type: "ee", x: 5.13, y: 65.38 },
     { id: "s3dev", type: "device", x: 3.13, y: 41.75 },
     { id: "s3term2", type: "terminal", x: 2.50, y: 55.61 },
     { id: "s3term3", type: "terminal", x: 17.00, y: 56.48 },
@@ -50,6 +52,8 @@ function getLabelFromId(id) {
         return "Lev";
     } else if (id.includes("core")) {
         return "C";
+    } else if (id.includes("ee")) {
+        return "EE";
     }
     return "";
 }
@@ -74,7 +78,7 @@ function renderMap() {
     });
 }
 
-let currentStrategy = "arch_test";
+let currentStrategy = "m7_guides";
 let activeRole = null;
 
 function generateControls() {
@@ -92,15 +96,11 @@ function generateControls() {
 }
 
 function selectRole(roleName) {
-    activeRole = roleName;
+    activeRole = activeRole === roleName ? null : roleName;
 
     const buttons = document.querySelectorAll('.class-btn');
     buttons.forEach(btn => {
-        if (btn.innerText === roleName) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
+        btn.classList.toggle('active', btn.innerText === activeRole);
     });
 
     updateMapHighlights();
@@ -165,12 +165,6 @@ function renderAnnotations() {
         }
     });
 }
-
-document.getElementById('show-all-btn').addEventListener('click', () => {
-    activeRole = null;
-    document.querySelectorAll('.class-btn').forEach(btn => btn.classList.remove('active'));
-    updateMapHighlights();
-});
 
 document.getElementById('strategy-select').addEventListener('change', (e) => {
     currentStrategy = e.target.value;
